@@ -39,10 +39,21 @@
     - Creating various plots to illustrate data distributions and relationships, often with the target variable as a focus.
 
 # Technologies 
-  List with used technologies, ex:
-  - Python
-  - Pandas
-  - MySQL
+  List with used technologies:
+  - Python: The core programming language for all data processing, analysis, and modeling.
+  - Pandas: Utilized extensively for data loading, manipulation, cleaning, and structuring.
+  - NumPy: Employed for fundamental numerical operations, particularly in conjunction with Pandas DataFrames.
+  - Matplotlib: Used for creating static, interactive, and animated visualizations in Python.
+  - Seaborn: Built on Matplotlib, it provides a high-level interface for drawing attractive and informative statistical graphics.
+  - Scikit-learn (sklearn): A comprehensive machine learning library used for:
+    - Data splitting (train_test_split)
+    - Feature scaling (StandardScaler)
+    - Classification models (LogisticRegression, RandomForestClassifier)
+    - Model evaluation metrics
+    - Clustering (KMeans)
+    - Dimensionality reduction (PCA)
+    - Permutation Importance (permutation_importance)
+  - SciPy: A scientific computing library, specifically used for statistical functions like t-tests and chi-squared tests (scipy.stats).
 
 # Project Description
   Paragraph with a description of the dataset, sources, characteristics ,etc.
