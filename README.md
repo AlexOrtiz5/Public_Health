@@ -56,7 +56,7 @@
   - SciPy: A scientific computing library, specifically used for statistical functions like t-tests and chi-squared tests (scipy.stats).
 
 # Project Description
-  Paragraph with a description of the dataset, sources, characteristics ,etc.
+  The dataset central to this project is the "Heart Disease Dataset," openly available on Kaggle. It can be accessed directly via the URL: https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset. This dataset is a public health-oriented collection of patient information, primarily characterized by features relevant to cardiovascular health. It includes a variety of attributes such as age, sex, trestbps (resting blood pressure), chol (serum cholesterol), fbs (fasting blood sugar), restecg (resting electrocardiographic results), thalach (maximum heart rate achieved), exang (exercise-induced angina), oldpeak (ST depression induced by exercise relative to rest), slope (the slope of the peak exercise ST segment), ca (number of major vessels colored by fluoroscopy), and thal (thalassemia type). Additionally, the dataset contains one-hot encoded representations of chest pain type (cp_0, cp_1, cp_2, cp_3), and crucially, a binary target variable indicating the presence (1) or absence (0) of heart disease. These characteristics make the dataset well-suited for classification tasks aimed at predicting heart disease, as well as for exploratory analysis to understand the underlying health factors.
 
 # Steps
   Add here any insights you had during the project
