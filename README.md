@@ -10,6 +10,7 @@
     - Handling Missing Values (Imputation)
     - Removing Duplicate Rows
     - Correcting Data Types
+    - Deep Dive into Outliers: Visual detection (Boxplots), statistical detection (IQR method), and handling strategies (Capping/Winsorizing, Removal).
   - Descriptive Statistics:
     - Calculating Summary Statistics (mean, median, std, min, max, quartiles) for numerical features.
     - Generating Frequency Counts and Percentages for categorical features.
@@ -18,11 +19,23 @@
     - Analyzing Relationships between Features and Target (Box plots, Violin plots, Count plots with hue, Stacked Bar Charts).
     - Creating Correlation Heatmaps.
     - Generating Pair Plots (for numerical features).
+  - Advanced Feature Engineering:
+    - Creating Polynomial Features (e.g., squared terms, interaction terms).
+    - Generating Manual Interaction Terms (e.g., age_x_chol).
+    - Binning/Discretization of continuous features (e.g., age_group).
+    - Creating Ratio Features (e.g., chol_to_trestbps_ratio).
+    - Combining One-Hot Encoded Features into a single categorical feature (e.g., cp_type).
   - Predictive Modeling (Classification):
     - Data Splitting (Training and Testing sets).
     - Feature Scaling.
     - Training Classification Models (e.g., Logistic Regression, Random Forest Classifier).
     - Model Evaluation (Accuracy, Precision, Recall, F1-Score, ROC AUC, Confusion Matrix, Classification Report).
+    - Hyperparameter Tuning: Using GridSearchCV with cross-validation to find optimal model parameters.
+    - Model Ensembling/Stacking: Combining predictions from multiple base models (e.g., Voting Classifier, Stacking Classifier) for improved performance.
+    - Addressing Class Imbalance: Implementing strategies like Oversampling (SMOTE), Undersampling (RandomUnderSampler), and utilizing class_weight parameters in models.
+  - Cross-Validation:
+    - Using cross_val_score for a quick estimate of performance across folds.
+    - Using cross_val_predict to generate comprehensive evaluation reports from out-of-fold predictions.
   - Feature Importance Analysis:
     - Extracting Model-based Feature Importances (from Random Forest).
     - Calculating Permutation Importance.
@@ -35,6 +48,10 @@
   - Hypothesis Testing:
     - Independent Samples T-tests (comparing numerical means between two groups).
     - Chi-squared Tests of Independence (assessing association between two categorical variables).
+  - Ethical Considerations and Bias Analysis:
+    - Identifying and Visualizing Potential Bias (e.g., disease prevalence by sex or age group).
+    - Quantifying Statistical Bias (e.g., comparing disease prevalence across demographic groups).
+    - Evaluating Model Fairness by subgroup (e.g., comparing model performance metrics for males vs. females).
   - Comprehensive Data Visualization:
     - Creating various plots to illustrate data distributions and relationships, often with the target variable as a focus.
 
