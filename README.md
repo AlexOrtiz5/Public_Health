@@ -63,13 +63,16 @@
   - Matplotlib: Used for creating static, interactive, and animated visualizations in Python.
   - Seaborn: Built on Matplotlib, it provides a high-level interface for drawing attractive and informative statistical graphics.
   - Scikit-learn (sklearn): A comprehensive machine learning library used for:
-    - Data splitting (train_test_split)
-    - Feature scaling (StandardScaler)
-    - Classification models (LogisticRegression, RandomForestClassifier)
-    - Model evaluation metrics
-    - Clustering (KMeans)
-    - Dimensionality reduction (PCA)
-    - Permutation Importance (permutation_importance)
+    - Data preprocessing, including StandardScaler and the robust ColumnTransformer.
+    - Data splitting (train_test_split) and advanced validation techniques like StratifiedKFold.
+    - Classification models such as LogisticRegression and RandomForestClassifier.
+    - Advanced model evaluation using a wide range of metrics and reports.
+    - Ensembling methods, including VotingClassifier and StackingClassifier.
+    - Hyperparameter tuning via GridSearchCV.
+  - Imbalanced-learn (imblearn): A crucial new library for handling imbalanced datasets, used for:
+    - Oversampling with SMOTE.
+    - Undersampling with RandomUnderSampler.
+    - Creating robust pipelines with imblearn.pipeline.
   - SciPy: A scientific computing library, specifically used for statistical functions like t-tests and chi-squared tests (scipy.stats).
 
 # Project Description
