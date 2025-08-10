@@ -1,0 +1,1278 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.25.0208.0338                               -->
+<workbook original-version='18.1' source-build='2024.3.4 (20243.25.0208.0338)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='cleaned_health' inline='true' name='federated.16tncfs0db9vi614azo9z1t0l87x' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cleaned_health' name='textscan.1ey8rwd0vst9tr1976wo5159elqk'>
+            <connection class='textscan' directory='C:/Users/lualg/Downloads/Practice/AnalystProjects/Public_Health/Health_Data' filename='cleaned_health.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1ey8rwd0vst9tr1976wo5159elqk' name='cleaned_health.csv' table='[cleaned_health#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_PR' separator=','>
+            <column datatype='integer' name='age' ordinal='0' />
+            <column datatype='integer' name='sex' ordinal='1' />
+            <column datatype='integer' name='trestbps' ordinal='2' />
+            <column datatype='integer' name='chol' ordinal='3' />
+            <column datatype='integer' name='fbs' ordinal='4' />
+            <column datatype='integer' name='restecg' ordinal='5' />
+            <column datatype='integer' name='thalach' ordinal='6' />
+            <column datatype='integer' name='exang' ordinal='7' />
+            <column datatype='real' name='oldpeak' ordinal='8' />
+            <column datatype='integer' name='slope' ordinal='9' />
+            <column datatype='integer' name='ca' ordinal='10' />
+            <column datatype='integer' name='thal' ordinal='11' />
+            <column datatype='integer' name='target' ordinal='12' />
+            <column datatype='integer' name='cp_0' ordinal='13' />
+            <column datatype='integer' name='cp_1' ordinal='14' />
+            <column datatype='integer' name='cp_2' ordinal='15' />
+            <column datatype='integer' name='cp_3' ordinal='16' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_PR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[age]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>age</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sex</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[sex]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>sex</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trestbps</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[trestbps]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>trestbps</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>chol</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[chol]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>chol</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fbs</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[fbs]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>fbs</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>restecg</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[restecg]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>restecg</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>thalach</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[thalach]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>thalach</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>exang</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[exang]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>exang</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>oldpeak</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[oldpeak]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>oldpeak</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>slope</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[slope]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>slope</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ca</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ca]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>ca</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>thal</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[thal]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>thal</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>target</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[target]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>target</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cp_0</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cp_0]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>cp_0</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cp_1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cp_1]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>cp_1</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cp_2</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cp_2]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>cp_2</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cp_3</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cp_3]</local-name>
+            <parent-name>[cleaned_health.csv]</parent-name>
+            <remote-alias>cp_3</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Heart Disease Status' datatype='string' name='[Calculation_1880815835386253312]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [target] = 1 THEN &apos;Yes&apos; ELSE &apos;No&apos; END' />
+      </column>
+      <column caption='Gender' datatype='string' name='[Calculation_1880815835386388481]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [sex] = 1 THEN &apos;Male&apos; ELSE &apos;Female&apos; END' />
+      </column>
+      <column caption='Chest Pain Type' datatype='string' name='[Calculation_1880815835386511362]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [cp_0] = 1 THEN &apos;Typical Angina&apos;&#13;&#10;ELSEIF [cp_1] = 1 THEN &apos;Atypical Angina&apos;&#13;&#10;ELSEIF [cp_2] = 1 THEN &apos;Non-Anginal Pain&apos;&#13;&#10;ELSEIF [cp_3] = 1 THEN &apos;Asymptomatic&apos;&#13;&#10;ELSE &apos;Unknown&apos; END' />
+      </column>
+      <column datatype='integer' name='[Thalach (bin)]' role='dimension' type='quantitative'>
+        <calculation class='bin' decimals='0' formula='[thalach]' peg='0' size='8.3' />
+      </column>
+      <column datatype='integer' name='[Trestbps (bin)]' role='dimension' type='quantitative'>
+        <calculation class='bin' decimals='0' formula='[trestbps]' peg='0' size='8.5' />
+      </column>
+      <column caption='cleaned_health.csv' datatype='table' name='[__tableau_internal_object_id__].[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]' role='measure' type='quantitative' />
+      <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+      <column caption='Ca' datatype='integer' name='[ca]' role='measure' type='quantitative' />
+      <column caption='Chol' datatype='integer' name='[chol]' role='measure' type='quantitative' />
+      <column caption='Cp 0' datatype='integer' name='[cp_0]' role='measure' type='quantitative' />
+      <column caption='Cp 1' datatype='integer' name='[cp_1]' role='measure' type='quantitative' />
+      <column caption='Cp 2' datatype='integer' name='[cp_2]' role='measure' type='quantitative' />
+      <column caption='Cp 3' datatype='integer' name='[cp_3]' role='measure' type='quantitative' />
+      <column caption='Exang' datatype='integer' name='[exang]' role='measure' type='quantitative' />
+      <column caption='Fbs' datatype='integer' name='[fbs]' role='measure' type='quantitative' />
+      <column caption='Oldpeak' datatype='real' name='[oldpeak]' role='measure' type='quantitative' />
+      <column caption='Restecg' datatype='integer' name='[restecg]' role='measure' type='quantitative' />
+      <column caption='Sex' datatype='integer' name='[sex]' role='measure' type='quantitative' />
+      <column caption='Slope' datatype='integer' name='[slope]' role='measure' type='quantitative' />
+      <column caption='Target' datatype='integer' name='[target]' role='measure' type='quantitative' />
+      <column caption='Thal' datatype='integer' name='[thal]' role='measure' type='quantitative' />
+      <column caption='Thalach' datatype='integer' name='[thalach]' role='measure' type='quantitative' />
+      <column caption='Trestbps' datatype='integer' name='[trestbps]' role='measure' type='quantitative' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/lualg/AppData/Local/Temp/TableauTemp/#TableauTemp_0q1zabp1xjctpx189y4b31aq403c.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='08/10/2025 03:59:32 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>age</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[age]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>age</remote-alias>
+              <ordinal>0</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>41</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>sex</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[sex]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>sex</remote-alias>
+              <ordinal>1</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>trestbps</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[trestbps]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>trestbps</remote-alias>
+              <ordinal>2</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>49</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>chol</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[chol]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>chol</remote-alias>
+              <ordinal>3</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>152</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>fbs</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[fbs]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>fbs</remote-alias>
+              <ordinal>4</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>restecg</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[restecg]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>restecg</remote-alias>
+              <ordinal>5</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>thalach</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[thalach]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>thalach</remote-alias>
+              <ordinal>6</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>91</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>exang</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[exang]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>exang</remote-alias>
+              <ordinal>7</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>oldpeak</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[oldpeak]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>oldpeak</remote-alias>
+              <ordinal>8</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>40</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>slope</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[slope]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>slope</remote-alias>
+              <ordinal>9</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ca</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[ca]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ca</remote-alias>
+              <ordinal>10</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>thal</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[thal]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>thal</remote-alias>
+              <ordinal>11</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>target</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[target]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>target</remote-alias>
+              <ordinal>12</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>cp_0</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[cp_0]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>cp_0</remote-alias>
+              <ordinal>13</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>cp_1</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[cp_1]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>cp_1</remote-alias>
+              <ordinal>14</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>cp_2</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[cp_2]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>cp_2</remote-alias>
+              <ordinal>15</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>cp_3</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[cp_3]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>cp_3</remote-alias>
+              <ordinal>16</ordinal>
+              <family>cleaned_health.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='cleaned_health.csv' id='cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1'>
+            <properties context=''>
+              <relation connection='textscan.1ey8rwd0vst9tr1976wo5159elqk' name='cleaned_health.csv' table='[cleaned_health#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_PR' separator=','>
+                  <column datatype='integer' name='age' ordinal='0' />
+                  <column datatype='integer' name='sex' ordinal='1' />
+                  <column datatype='integer' name='trestbps' ordinal='2' />
+                  <column datatype='integer' name='chol' ordinal='3' />
+                  <column datatype='integer' name='fbs' ordinal='4' />
+                  <column datatype='integer' name='restecg' ordinal='5' />
+                  <column datatype='integer' name='thalach' ordinal='6' />
+                  <column datatype='integer' name='exang' ordinal='7' />
+                  <column datatype='real' name='oldpeak' ordinal='8' />
+                  <column datatype='integer' name='slope' ordinal='9' />
+                  <column datatype='integer' name='ca' ordinal='10' />
+                  <column datatype='integer' name='thal' ordinal='11' />
+                  <column datatype='integer' name='target' ordinal='12' />
+                  <column datatype='integer' name='cp_0' ordinal='13' />
+                  <column datatype='integer' name='cp_1' ordinal='14' />
+                  <column datatype='integer' name='cp_2' ordinal='15' />
+                  <column datatype='integer' name='cp_3' ordinal='16' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Cholesterol vs Age'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_health' name='federated.16tncfs0db9vi614azo9z1t0l87x' />
+          </datasources>
+          <datasource-dependencies datasource='federated.16tncfs0db9vi614azo9z1t0l87x'>
+            <column caption='Heart Disease Status' datatype='string' name='[Calculation_1880815835386253312]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [target] = 1 THEN &apos;Yes&apos; ELSE &apos;No&apos; END' />
+            </column>
+            <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+            <column caption='Chol' datatype='integer' name='[chol]' role='measure' type='quantitative' />
+            <column-instance column='[age]' derivation='CountD' name='[ctd:age:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[chol]' derivation='CountD' name='[ctd:chol:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1880815835386253312]' derivation='None' name='[none:Calculation_1880815835386253312:nk]' pivot='key' type='nominal' />
+            <column caption='Target' datatype='integer' name='[target]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]' included-values='in-range'>
+            <min>35</min>
+            <max>40</max>
+          </filter>
+          <slices>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]</rows>
+        <cols>[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:chol:qk]</cols>
+      </table>
+      <simple-id uuid='{D15592FC-20A4-44AD-BFF5-A450569BCA7E}' />
+    </worksheet>
+    <worksheet name='Distribution of Resting Blood Pressure'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_health' name='federated.16tncfs0db9vi614azo9z1t0l87x' />
+          </datasources>
+          <datasource-dependencies datasource='federated.16tncfs0db9vi614azo9z1t0l87x'>
+            <column datatype='integer' name='[Trestbps (bin)]' role='dimension' type='quantitative'>
+              <calculation class='bin' decimals='0' formula='[trestbps]' peg='0' size='8.5' />
+            </column>
+            <column-instance column='[trestbps]' derivation='Count' name='[cnt:trestbps:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Trestbps (bin)]' derivation='None' name='[none:Trestbps (bin):qk]' pivot='key' type='quantitative' />
+            <column caption='Trestbps' datatype='integer' name='[trestbps]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+          </pane>
+        </panes>
+        <rows>[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:trestbps:qk]</rows>
+        <cols>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Trestbps (bin):qk]</cols>
+        <show-full-range>
+          <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Trestbps (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{39437473-4363-4EE1-8651-A8A34EE308D9}' />
+    </worksheet>
+    <worksheet name='Max Heart Rate by Chest Pain Type'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_health' name='federated.16tncfs0db9vi614azo9z1t0l87x' />
+          </datasources>
+          <datasource-dependencies datasource='federated.16tncfs0db9vi614azo9z1t0l87x'>
+            <column caption='Chest Pain Type' datatype='string' name='[Calculation_1880815835386511362]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [cp_0] = 1 THEN &apos;Typical Angina&apos;&#13;&#10;ELSEIF [cp_1] = 1 THEN &apos;Atypical Angina&apos;&#13;&#10;ELSEIF [cp_2] = 1 THEN &apos;Non-Anginal Pain&apos;&#13;&#10;ELSEIF [cp_3] = 1 THEN &apos;Asymptomatic&apos;&#13;&#10;ELSE &apos;Unknown&apos; END' />
+            </column>
+            <column-instance column='[thalach]' derivation='Count' name='[cnt:thalach:qk]' pivot='key' type='quantitative' />
+            <column caption='Cp 0' datatype='integer' name='[cp_0]' role='measure' type='quantitative' />
+            <column caption='Cp 1' datatype='integer' name='[cp_1]' role='measure' type='quantitative' />
+            <column caption='Cp 2' datatype='integer' name='[cp_2]' role='measure' type='quantitative' />
+            <column caption='Cp 3' datatype='integer' name='[cp_3]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1880815835386511362]' derivation='None' name='[none:Calculation_1880815835386511362:nk]' pivot='key' type='nominal' />
+            <column caption='Thalach' datatype='integer' name='[thalach]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:thalach:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:thalach:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:thalach:qk]</rows>
+        <cols>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]</cols>
+      </table>
+      <simple-id uuid='{730A4DD7-BF40-4180-AB8C-C88100E0B6F6}' />
+    </worksheet>
+    <worksheet name='Prevalence by Gender'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_health' name='federated.16tncfs0db9vi614azo9z1t0l87x' />
+          </datasources>
+          <datasource-dependencies datasource='federated.16tncfs0db9vi614azo9z1t0l87x'>
+            <column caption='Heart Disease Status' datatype='string' name='[Calculation_1880815835386253312]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [target] = 1 THEN &apos;Yes&apos; ELSE &apos;No&apos; END' />
+            </column>
+            <column caption='Gender' datatype='string' name='[Calculation_1880815835386388481]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [sex] = 1 THEN &apos;Male&apos; ELSE &apos;Female&apos; END' />
+            </column>
+            <column caption='cleaned_health.csv' datatype='table' name='[__tableau_internal_object_id__].[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]' role='measure' type='quantitative' />
+            <column-instance column='[__tableau_internal_object_id__].[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1:qk]' pivot='key' type='quantitative' />
+            <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+            <column caption='Ca' datatype='integer' name='[ca]' role='measure' type='quantitative' />
+            <column caption='Chol' datatype='integer' name='[chol]' role='measure' type='quantitative' />
+            <column caption='Cp 0' datatype='integer' name='[cp_0]' role='measure' type='quantitative' />
+            <column caption='Cp 1' datatype='integer' name='[cp_1]' role='measure' type='quantitative' />
+            <column caption='Cp 2' datatype='integer' name='[cp_2]' role='measure' type='quantitative' />
+            <column caption='Cp 3' datatype='integer' name='[cp_3]' role='measure' type='quantitative' />
+            <column caption='Exang' datatype='integer' name='[exang]' role='measure' type='quantitative' />
+            <column caption='Fbs' datatype='integer' name='[fbs]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1880815835386253312]' derivation='None' name='[none:Calculation_1880815835386253312:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1880815835386388481]' derivation='None' name='[none:Calculation_1880815835386388481:nk]' pivot='key' type='nominal' />
+            <column caption='Oldpeak' datatype='real' name='[oldpeak]' role='measure' type='quantitative' />
+            <column caption='Restecg' datatype='integer' name='[restecg]' role='measure' type='quantitative' />
+            <column caption='Sex' datatype='integer' name='[sex]' role='measure' type='quantitative' />
+            <column caption='Slope' datatype='integer' name='[slope]' role='measure' type='quantitative' />
+            <column-instance column='[age]' derivation='Sum' name='[sum:age:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[ca]' derivation='Sum' name='[sum:ca:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[chol]' derivation='Sum' name='[sum:chol:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[cp_0]' derivation='Sum' name='[sum:cp_0:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[cp_1]' derivation='Sum' name='[sum:cp_1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[cp_2]' derivation='Sum' name='[sum:cp_2:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[cp_3]' derivation='Sum' name='[sum:cp_3:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[exang]' derivation='Sum' name='[sum:exang:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[fbs]' derivation='Sum' name='[sum:fbs:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[oldpeak]' derivation='Sum' name='[sum:oldpeak:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[restecg]' derivation='Sum' name='[sum:restecg:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[sex]' derivation='Sum' name='[sum:sex:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[slope]' derivation='Sum' name='[sum:slope:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[target]' derivation='Sum' name='[sum:target:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[thal]' derivation='Sum' name='[sum:thal:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[thalach]' derivation='Sum' name='[sum:thalach:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[trestbps]' derivation='Sum' name='[sum:trestbps:qk]' pivot='key' type='quantitative' />
+            <column caption='Target' datatype='integer' name='[target]' role='measure' type='quantitative' />
+            <column caption='Thal' datatype='integer' name='[thal]' role='measure' type='quantitative' />
+            <column caption='Thalach' datatype='integer' name='[thalach]' role='measure' type='quantitative' />
+            <column caption='Trestbps' datatype='integer' name='[trestbps]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.16tncfs0db9vi614azo9z1t0l87x].[Multiple Values]</rows>
+        <cols>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]</cols>
+      </table>
+      <simple-id uuid='{94809A45-4C71-408A-99E3-9D0D0B0BD4E3}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Prevalence by Gender'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]</field>
+            <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{6562EF27-1704-40DB-B727-E78B3F3955E1}' />
+    </window>
+    <window class='worksheet' name='Cholesterol vs Age'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{881BAA90-0D29-46CC-BD24-48AAE82F941B}' />
+    </window>
+    <window class='worksheet' name='Max Heart Rate by Chest Pain Type'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{66AB1432-95C8-46DC-996C-09F30D1DAA93}' />
+    </window>
+    <window class='worksheet' name='Distribution of Resting Blood Pressure'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[:Measure Names]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{2AA20AB4-33DD-45AA-A804-48DA5A0E461E}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Cholesterol vs Age' width='192'>
+      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
+      RK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Distribution of Resting Blood Pressure' width='192'>
+      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
+      xgCQ0P4XmOMqISmYmgkAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Max Heart Rate by Chest Pain Type' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Prevalence by Gender' width='192'>
+      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
+      AAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
