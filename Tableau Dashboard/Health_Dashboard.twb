@@ -3,15 +3,19 @@
 <!-- build 20243.25.0208.0338                               -->
 <workbook original-version='18.1' source-build='2024.3.4 (20243.25.0208.0338)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
     <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
     <MarkAnimation />
     <ObjectModelEncapsulateLegacy />
     <ObjectModelExtractV2 />
     <ObjectModelTableType />
     <SchemaViewerObjectModel />
+    <SetMembershipControl />
     <SheetIdentifierTracking />
     <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
     <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
   </document-format-change-manifest>
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
@@ -303,6 +307,7 @@
       <column caption='Thal' datatype='integer' name='[thal]' role='measure' type='quantitative' />
       <column caption='Thalach' datatype='integer' name='[thalach]' role='measure' type='quantitative' />
       <column caption='Trestbps' datatype='integer' name='[trestbps]' role='measure' type='quantitative' />
+      <column-instance column='[Calculation_1880815835386253312]' derivation='None' name='[none:Calculation_1880815835386253312:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_1880815835386388481]' derivation='None' name='[none:Calculation_1880815835386388481:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_1880815835386511362]' derivation='None' name='[none:Calculation_1880815835386511362:nk]' pivot='key' type='nominal' />
       <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
@@ -565,6 +570,14 @@
             </map>
             <map to='#f28e2b'>
               <bucket>&quot;Atypical Angina&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Calculation_1880815835386253312:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;No&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Yes&quot;</bucket>
             </map>
           </encoding>
           <encoding attr='color' field='[none:Calculation_1880815835386388481:nk]' type='palette'>
@@ -857,8 +870,286 @@
       <simple-id uuid='{94809A45-4C71-408A-99E3-9D0D0B0BD4E3}' />
     </worksheet>
   </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Heart Disease Patient Overview'>
+      <style />
+      <size minheight='100' minwidth='420' sizing-mode='range' />
+      <datasources>
+        <datasource caption='cleaned_health' name='federated.16tncfs0db9vi614azo9z1t0l87x' />
+      </datasources>
+      <datasource-dependencies datasource='federated.16tncfs0db9vi614azo9z1t0l87x'>
+        <column caption='Gender' datatype='string' name='[Calculation_1880815835386388481]' role='dimension' type='nominal'>
+          <calculation class='tableau' formula='IF [sex] = 1 THEN &apos;Male&apos; ELSE &apos;Female&apos; END' />
+        </column>
+        <column caption='Chest Pain Type' datatype='string' name='[Calculation_1880815835386511362]' role='dimension' type='nominal'>
+          <calculation class='tableau' formula='IF [cp_0] = 1 THEN &apos;Typical Angina&apos;&#13;&#10;ELSEIF [cp_1] = 1 THEN &apos;Atypical Angina&apos;&#13;&#10;ELSEIF [cp_2] = 1 THEN &apos;Non-Anginal Pain&apos;&#13;&#10;ELSEIF [cp_3] = 1 THEN &apos;Asymptomatic&apos;&#13;&#10;ELSE &apos;Unknown&apos; END' />
+        </column>
+        <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+        <column-instance column='[trestbps]' derivation='Count' name='[cnt:trestbps:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[age]' derivation='CountD' name='[ctd:age:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[Calculation_1880815835386388481]' derivation='None' name='[none:Calculation_1880815835386388481:nk]' pivot='key' type='nominal' />
+        <column-instance column='[Calculation_1880815835386511362]' derivation='None' name='[none:Calculation_1880815835386511362:nk]' pivot='key' type='nominal' />
+        <column caption='Trestbps' datatype='integer' name='[trestbps]' role='measure' type='quantitative' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98002' id='7' param='horz' type-v2='layout-flow' w='99034' x='483' y='999'>
+            <zone h='98002' id='5' type-v2='layout-basic' w='87447' x='483' y='999'>
+              <zone h='49001' id='3' name='Prevalence by Gender' w='43724' x='44206' y='999'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49001' id='10' name='Cholesterol vs Age' w='43723' x='483' y='999'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49001' id='13' name='Max Heart Rate by Chest Pain Type' w='43723' x='483' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49001' id='17' name='Distribution of Resting Blood Pressure' w='43724' x='44206' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='192' h='98002' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='11587' x='87930' y='999'>
+              <zone h='12359' id='8' name='Prevalence by Gender' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='999'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8989' id='9' name='Prevalence by Gender' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]' type-v2='color' w='11587' x='87930' y='13358'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='12359' id='11' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='22347'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9114' id='12' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='34706'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='12359' id='14' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='43820'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='12359' id='15' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='filter' w='11587' x='87930' y='56179'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='12359' id='16' name='Max Heart Rate by Chest Pain Type' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='color' w='11587' x='87930' y='68538'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9114' id='18' name='Distribution of Resting Blood Pressure' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:trestbps:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='80897'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8990' id='19' name='Distribution of Resting Blood Pressure' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='color' w='11587' x='87930' y='90011'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='800' minheight='800' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='21' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98002' id='20' param='vert' type-v2='layout-flow' w='99034' x='483' y='999'>
+                <zone h='12359' id='11' mode='checkdropdown' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='22347'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9114' id='12' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='34706'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='41' h='49001' id='10' is-fixed='true' name='Cholesterol vs Age' w='43723' x='483' y='999'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='12359' id='8' mode='checkdropdown' name='Prevalence by Gender' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='999'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='41' h='49001' id='3' is-fixed='true' name='Prevalence by Gender' w='43724' x='44206' y='999'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8989' id='9' name='Prevalence by Gender' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]' type-v2='color' w='11587' x='87930' y='13358'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='12359' id='14' mode='checkdropdown' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='43820'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='12359' id='15' mode='checkdropdown' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='filter' w='11587' x='87930' y='56179'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='41' h='49001' id='13' is-fixed='true' name='Max Heart Rate by Chest Pain Type' w='43723' x='483' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='12359' id='16' name='Max Heart Rate by Chest Pain Type' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='color' w='11587' x='87930' y='68538'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9114' id='18' name='Distribution of Resting Blood Pressure' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:trestbps:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='80897'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='41' h='49001' id='17' is-fixed='true' name='Distribution of Resting Blood Pressure' w='43724' x='44206' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8990' id='19' name='Distribution of Resting Blood Pressure' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='color' w='11587' x='87930' y='90011'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{AAC39889-D007-4692-ABC2-3ACFC333D544}' />
+    </dashboard>
+  </dashboards>
   <windows saved-dpi-scale-factor='1.25' source-height='37'>
-    <window class='worksheet' maximized='true' name='Prevalence by Gender'>
+    <window class='worksheet' name='Prevalence by Gender'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1007,6 +1298,40 @@
         </highlight>
       </viewpoint>
       <simple-id uuid='{2AA20AB4-33DD-45AA-A804-48DA5A0E461E}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Heart Disease Patient Overview'>
+      <viewpoints>
+        <viewpoint name='Cholesterol vs Age'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Distribution of Resting Blood Pressure'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+        <viewpoint name='Max Heart Rate by Chest Pain Type'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+        <viewpoint name='Prevalence by Gender'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='18' />
+      <device-preview selected='Desktop' />
+      <simple-id uuid='{6890C8A6-3D46-496F-B2FB-028C9E1E2862}' />
     </window>
   </windows>
   <thumbnails>
@@ -1182,6 +1507,180 @@
       bK7C8JlRxkZihPoGGXBXubu0QmzsKtdnVlD0qgRAtC93ZxeRcCfhyBD9XX6ef/F5qlUbwU43
       vkCQaqXCudODzN1PEPI6SOk+Bn02bn74Hi9eiOH1h+Q8gLCW1ft3sXWNEAm6AbkaVFjc/wMH
       wxpqk1eJKwAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Heart Disease Patient Overview' width='192'>
+      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
+      SVkAAAAASUVORK5CYII=
     </thumbnail>
     <thumbnail height='192' name='Max Heart Rate by Chest Pain Type' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
