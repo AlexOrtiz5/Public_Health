@@ -310,6 +310,29 @@
       <column-instance column='[Calculation_1880815835386253312]' derivation='None' name='[none:Calculation_1880815835386253312:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_1880815835386388481]' derivation='None' name='[none:Calculation_1880815835386388481:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_1880815835386511362]' derivation='None' name='[none:Calculation_1880815835386511362:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Trestbps (bin)]' derivation='None' name='[none:Trestbps (bin):ok]' pivot='key' type='ordinal' />
+      <group caption='Action (Chest Pain Type)' hidden='true' name='[Action (Chest Pain Type)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_1880815835386511362]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Gender,Trestbps (bin))' hidden='true' name='[Action (Gender,Trestbps (bin))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_1880815835386388481]' />
+          <groupfilter function='level-members' level='[none:Trestbps (bin):ok]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Heart Disease Status)' hidden='true' name='[Action (Heart Disease Status)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_1880815835386253312]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Heart Disease Status,Gender)' hidden='true' name='[Action (Heart Disease Status,Gender)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_1880815835386253312]' />
+          <groupfilter function='level-members' level='[Calculation_1880815835386388481]' />
+        </groupfilter>
+      </group>
       <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
         <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/lualg/AppData/Local/Temp/TableauTemp/#TableauTemp_0q1zabp1xjctpx189y4b31aq403c.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='08/10/2025 03:59:32 PM' username='tableau_internal_user'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
@@ -572,20 +595,20 @@
               <bucket>&quot;Atypical Angina&quot;</bucket>
             </map>
           </encoding>
-          <encoding attr='color' field='[none:Calculation_1880815835386253312:nk]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>&quot;No&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;Yes&quot;</bucket>
-            </map>
-          </encoding>
           <encoding attr='color' field='[none:Calculation_1880815835386388481:nk]' type='palette'>
             <map to='#4e79a7'>
               <bucket>&quot;Female&quot;</bucket>
             </map>
             <map to='#f28e2b'>
               <bucket>&quot;Male&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Calculation_1880815835386253312:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;No&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Yes&quot;</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -627,6 +650,40 @@
       </object-graph>
     </datasource>
   </datasources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1_541353661C44401FB2A34FECA0D42B20]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Heart Disease Patient Overview' type='sheet' worksheet='Prevalence by Gender' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Heart Disease Patient Overview' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action2_1B07A7D57C4D423A8E7E76C25361E88C]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Heart Disease Patient Overview' type='sheet' worksheet='Cholesterol vs Age' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Heart Disease Patient Overview' />
+      </command>
+    </action>
+    <action caption='Filter 3 (generated)' name='[Action3_797DF74D46A04D34AA155A6983D81E11]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Heart Disease Patient Overview' type='sheet' worksheet='Max Heart Rate by Chest Pain Type' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Heart Disease Patient Overview' />
+      </command>
+    </action>
+    <action caption='Filter 4 (generated)' name='[Action4_648035131C1B4B20B08781A56B58A27A]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Heart Disease Patient Overview' type='sheet' worksheet='Distribution of Resting Blood Pressure' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Heart Disease Patient Overview' />
+      </command>
+    </action>
+  </actions>
   <worksheets>
     <worksheet name='Cholesterol vs Age'>
       <table>
@@ -641,15 +698,42 @@
             <column caption='Gender' datatype='string' name='[Calculation_1880815835386388481]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='IF [sex] = 1 THEN &apos;Male&apos; ELSE &apos;Female&apos; END' />
             </column>
+            <column caption='Chest Pain Type' datatype='string' name='[Calculation_1880815835386511362]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [cp_0] = 1 THEN &apos;Typical Angina&apos;&#13;&#10;ELSEIF [cp_1] = 1 THEN &apos;Atypical Angina&apos;&#13;&#10;ELSEIF [cp_2] = 1 THEN &apos;Non-Anginal Pain&apos;&#13;&#10;ELSEIF [cp_3] = 1 THEN &apos;Asymptomatic&apos;&#13;&#10;ELSE &apos;Unknown&apos; END' />
+            </column>
+            <column aggregation='None' datatype='integer' name='[Trestbps (bin)]' role='dimension' type='quantitative'>
+              <calculation class='bin' decimals='0' formula='[trestbps]' peg='0' size='8.5' />
+            </column>
             <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
             <column caption='Chol' datatype='integer' name='[chol]' role='measure' type='quantitative' />
+            <column caption='Cp 0' datatype='integer' name='[cp_0]' role='measure' type='quantitative' />
+            <column caption='Cp 1' datatype='integer' name='[cp_1]' role='measure' type='quantitative' />
+            <column caption='Cp 2' datatype='integer' name='[cp_2]' role='measure' type='quantitative' />
+            <column caption='Cp 3' datatype='integer' name='[cp_3]' role='measure' type='quantitative' />
             <column-instance column='[age]' derivation='CountD' name='[ctd:age:qk]' pivot='key' type='quantitative' />
             <column-instance column='[chol]' derivation='CountD' name='[ctd:chol:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_1880815835386253312]' derivation='None' name='[none:Calculation_1880815835386253312:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_1880815835386388481]' derivation='None' name='[none:Calculation_1880815835386388481:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Trestbps (bin)]' derivation='None' name='[none:Trestbps (bin):ok]' pivot='key' type='ordinal' />
             <column caption='Sex' datatype='integer' name='[sex]' role='measure' type='quantitative' />
             <column caption='Target' datatype='integer' name='[target]' role='measure' type='quantitative' />
+            <column caption='Trestbps' datatype='integer' name='[trestbps]' role='measure' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Chest Pain Type)]'>
+            <groupfilter function='level-members' level='[Calculation_1880815835386511362]' user:ui-action-filter='[Action3_797DF74D46A04D34AA155A6983D81E11]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Gender,Trestbps (bin))]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action4_648035131C1B4B20B08781A56B58A27A]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Calculation_1880815835386388481]' />
+              <groupfilter function='level-members' level='[none:Trestbps (bin):ok]' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status,Gender)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action1_541353661C44401FB2A34FECA0D42B20]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Calculation_1880815835386253312]' />
+              <groupfilter function='level-members' level='[Calculation_1880815835386388481]' />
+            </groupfilter>
+          </filter>
           <filter class='quantitative' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]' included-values='in-range'>
             <min>35</min>
             <max>40</max>
@@ -660,6 +744,9 @@
           <slices>
             <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]</column>
             <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status,Gender)]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Chest Pain Type)]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Gender,Trestbps (bin))]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -687,24 +774,50 @@
             <datasource caption='cleaned_health' name='federated.16tncfs0db9vi614azo9z1t0l87x' />
           </datasources>
           <datasource-dependencies datasource='federated.16tncfs0db9vi614azo9z1t0l87x'>
+            <column caption='Heart Disease Status' datatype='string' name='[Calculation_1880815835386253312]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [target] = 1 THEN &apos;Yes&apos; ELSE &apos;No&apos; END' />
+            </column>
             <column caption='Gender' datatype='string' name='[Calculation_1880815835386388481]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='IF [sex] = 1 THEN &apos;Male&apos; ELSE &apos;Female&apos; END' />
+            </column>
+            <column caption='Chest Pain Type' datatype='string' name='[Calculation_1880815835386511362]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [cp_0] = 1 THEN &apos;Typical Angina&apos;&#13;&#10;ELSEIF [cp_1] = 1 THEN &apos;Atypical Angina&apos;&#13;&#10;ELSEIF [cp_2] = 1 THEN &apos;Non-Anginal Pain&apos;&#13;&#10;ELSEIF [cp_3] = 1 THEN &apos;Asymptomatic&apos;&#13;&#10;ELSE &apos;Unknown&apos; END' />
             </column>
             <column aggregation='None' datatype='integer' name='[Trestbps (bin)]' role='dimension' type='quantitative'>
               <calculation class='bin' decimals='0' formula='[trestbps]' peg='0' size='8.5' />
             </column>
             <column-instance column='[trestbps]' derivation='Count' name='[cnt:trestbps:qk]' pivot='key' type='quantitative' />
+            <column caption='Cp 0' datatype='integer' name='[cp_0]' role='measure' type='quantitative' />
+            <column caption='Cp 1' datatype='integer' name='[cp_1]' role='measure' type='quantitative' />
+            <column caption='Cp 2' datatype='integer' name='[cp_2]' role='measure' type='quantitative' />
+            <column caption='Cp 3' datatype='integer' name='[cp_3]' role='measure' type='quantitative' />
             <column-instance column='[Calculation_1880815835386388481]' derivation='None' name='[none:Calculation_1880815835386388481:nk]' pivot='key' type='nominal' />
             <column-instance column='[Trestbps (bin)]' derivation='None' name='[none:Trestbps (bin):qk]' pivot='key' type='quantitative' />
             <column caption='Sex' datatype='integer' name='[sex]' role='measure' type='quantitative' />
+            <column caption='Target' datatype='integer' name='[target]' role='measure' type='quantitative' />
             <column caption='Trestbps' datatype='integer' name='[trestbps]' role='measure' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Chest Pain Type)]'>
+            <groupfilter function='level-members' level='[Calculation_1880815835386511362]' user:ui-action-filter='[Action3_797DF74D46A04D34AA155A6983D81E11]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status)]'>
+            <groupfilter function='level-members' level='[Calculation_1880815835386253312]' user:ui-action-filter='[Action2_1B07A7D57C4D423A8E7E76C25361E88C]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status,Gender)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action1_541353661C44401FB2A34FECA0D42B20]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Calculation_1880815835386253312]' />
+              <groupfilter function='level-members' level='[Calculation_1880815835386388481]' />
+            </groupfilter>
+          </filter>
           <filter class='quantitative' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:trestbps:qk]' included-values='in-range'>
             <min>1</min>
             <max>48</max>
           </filter>
           <slices>
             <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:trestbps:qk]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status,Gender)]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status)]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Chest Pain Type)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -736,11 +849,17 @@
             <datasource caption='cleaned_health' name='federated.16tncfs0db9vi614azo9z1t0l87x' />
           </datasources>
           <datasource-dependencies datasource='federated.16tncfs0db9vi614azo9z1t0l87x'>
+            <column caption='Heart Disease Status' datatype='string' name='[Calculation_1880815835386253312]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [target] = 1 THEN &apos;Yes&apos; ELSE &apos;No&apos; END' />
+            </column>
             <column caption='Gender' datatype='string' name='[Calculation_1880815835386388481]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='IF [sex] = 1 THEN &apos;Male&apos; ELSE &apos;Female&apos; END' />
             </column>
             <column caption='Chest Pain Type' datatype='string' name='[Calculation_1880815835386511362]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='IF [cp_0] = 1 THEN &apos;Typical Angina&apos;&#13;&#10;ELSEIF [cp_1] = 1 THEN &apos;Atypical Angina&apos;&#13;&#10;ELSEIF [cp_2] = 1 THEN &apos;Non-Anginal Pain&apos;&#13;&#10;ELSEIF [cp_3] = 1 THEN &apos;Asymptomatic&apos;&#13;&#10;ELSE &apos;Unknown&apos; END' />
+            </column>
+            <column aggregation='None' datatype='integer' name='[Trestbps (bin)]' role='dimension' type='quantitative'>
+              <calculation class='bin' decimals='0' formula='[trestbps]' peg='0' size='8.5' />
             </column>
             <column-instance column='[thalach]' derivation='Count' name='[cnt:thalach:qk]' pivot='key' type='quantitative' />
             <column caption='Cp 0' datatype='integer' name='[cp_0]' role='measure' type='quantitative' />
@@ -749,9 +868,27 @@
             <column caption='Cp 3' datatype='integer' name='[cp_3]' role='measure' type='quantitative' />
             <column-instance column='[Calculation_1880815835386388481]' derivation='None' name='[none:Calculation_1880815835386388481:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_1880815835386511362]' derivation='None' name='[none:Calculation_1880815835386511362:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Trestbps (bin)]' derivation='None' name='[none:Trestbps (bin):ok]' pivot='key' type='ordinal' />
             <column caption='Sex' datatype='integer' name='[sex]' role='measure' type='quantitative' />
+            <column caption='Target' datatype='integer' name='[target]' role='measure' type='quantitative' />
             <column caption='Thalach' datatype='integer' name='[thalach]' role='measure' type='quantitative' />
+            <column caption='Trestbps' datatype='integer' name='[trestbps]' role='measure' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Gender,Trestbps (bin))]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action4_648035131C1B4B20B08781A56B58A27A]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Calculation_1880815835386388481]' />
+              <groupfilter function='level-members' level='[none:Trestbps (bin):ok]' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status)]'>
+            <groupfilter function='level-members' level='[Calculation_1880815835386253312]' user:ui-action-filter='[Action2_1B07A7D57C4D423A8E7E76C25361E88C]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status,Gender)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action1_541353661C44401FB2A34FECA0D42B20]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Calculation_1880815835386253312]' />
+              <groupfilter function='level-members' level='[Calculation_1880815835386388481]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]'>
             <groupfilter function='level-members' level='[none:Calculation_1880815835386388481:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -761,6 +898,9 @@
           <slices>
             <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]</column>
             <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status,Gender)]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status)]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Gender,Trestbps (bin))]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -801,6 +941,12 @@
             <column caption='Gender' datatype='string' name='[Calculation_1880815835386388481]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='IF [sex] = 1 THEN &apos;Male&apos; ELSE &apos;Female&apos; END' />
             </column>
+            <column caption='Chest Pain Type' datatype='string' name='[Calculation_1880815835386511362]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [cp_0] = 1 THEN &apos;Typical Angina&apos;&#13;&#10;ELSEIF [cp_1] = 1 THEN &apos;Atypical Angina&apos;&#13;&#10;ELSEIF [cp_2] = 1 THEN &apos;Non-Anginal Pain&apos;&#13;&#10;ELSEIF [cp_3] = 1 THEN &apos;Asymptomatic&apos;&#13;&#10;ELSE &apos;Unknown&apos; END' />
+            </column>
+            <column aggregation='None' datatype='integer' name='[Trestbps (bin)]' role='dimension' type='quantitative'>
+              <calculation class='bin' decimals='0' formula='[trestbps]' peg='0' size='8.5' />
+            </column>
             <column caption='cleaned_health.csv' datatype='table' name='[__tableau_internal_object_id__].[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]' role='measure' type='quantitative' />
             <column-instance column='[__tableau_internal_object_id__].[cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:cleaned_health.csv_6F9B631ADCA24FC590D13A2D085A34B1:qk]' pivot='key' type='quantitative' />
             <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
@@ -814,6 +960,7 @@
             <column caption='Fbs' datatype='integer' name='[fbs]' role='measure' type='quantitative' />
             <column-instance column='[Calculation_1880815835386253312]' derivation='None' name='[none:Calculation_1880815835386253312:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_1880815835386388481]' derivation='None' name='[none:Calculation_1880815835386388481:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Trestbps (bin)]' derivation='None' name='[none:Trestbps (bin):ok]' pivot='key' type='ordinal' />
             <column caption='Oldpeak' datatype='real' name='[oldpeak]' role='measure' type='quantitative' />
             <column caption='Restecg' datatype='integer' name='[restecg]' role='measure' type='quantitative' />
             <column caption='Sex' datatype='integer' name='[sex]' role='measure' type='quantitative' />
@@ -843,12 +990,27 @@
           <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[:Measure Names]'>
             <groupfilter function='level-members' level='[:Measure Names]' />
           </filter>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Chest Pain Type)]'>
+            <groupfilter function='level-members' level='[Calculation_1880815835386511362]' user:ui-action-filter='[Action3_797DF74D46A04D34AA155A6983D81E11]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Gender,Trestbps (bin))]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action4_648035131C1B4B20B08781A56B58A27A]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Calculation_1880815835386388481]' />
+              <groupfilter function='level-members' level='[none:Trestbps (bin):ok]' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status)]'>
+            <groupfilter function='level-members' level='[Calculation_1880815835386253312]' user:ui-action-filter='[Action2_1B07A7D57C4D423A8E7E76C25361E88C]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
           <filter class='categorical' column='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]'>
             <groupfilter function='level-members' level='[none:Calculation_1880815835386388481:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <slices>
             <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]</column>
             <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[:Measure Names]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Heart Disease Status)]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Chest Pain Type)]</column>
+            <column>[federated.16tncfs0db9vi614azo9z1t0l87x].[Action (Gender,Trestbps (bin))]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -893,9 +1055,9 @@
       </datasource-dependencies>
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98002' id='7' param='horz' type-v2='layout-flow' w='99034' x='483' y='999'>
-            <zone h='98002' id='5' type-v2='layout-basic' w='87447' x='483' y='999'>
-              <zone h='49001' id='3' name='Prevalence by Gender' w='43724' x='44206' y='999'>
+          <zone h='88764' id='7' param='horz' type-v2='layout-flow' w='99034' x='483' y='10237'>
+            <zone h='88764' id='5' type-v2='layout-basic' w='87447' x='483' y='10237'>
+              <zone h='44383' id='3' name='Prevalence by Gender' w='43724' x='44206' y='10237'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -903,7 +1065,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='49001' id='10' name='Cholesterol vs Age' w='43723' x='483' y='999'>
+              <zone h='44383' id='10' name='Cholesterol vs Age' w='43723' x='483' y='10237'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -911,7 +1073,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='49001' id='13' name='Max Heart Rate by Chest Pain Type' w='43723' x='483' y='50000'>
+              <zone h='44381' id='13' name='Max Heart Rate by Chest Pain Type' w='43723' x='483' y='54620'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -919,81 +1081,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='49001' id='17' name='Distribution of Resting Blood Pressure' w='43724' x='44206' y='50000'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-            </zone>
-            <zone fixed-size='192' h='98002' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='11587' x='87930' y='999'>
-              <zone h='12359' id='8' name='Prevalence by Gender' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='999'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='8989' id='9' name='Prevalence by Gender' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]' type-v2='color' w='11587' x='87930' y='13358'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='12359' id='11' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='22347'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='9114' id='12' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='34706'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='12359' id='14' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='43820'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='12359' id='15' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='filter' w='11587' x='87930' y='56179'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='12359' id='16' name='Max Heart Rate by Chest Pain Type' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='color' w='11587' x='87930' y='68538'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='9114' id='18' name='Distribution of Resting Blood Pressure' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:trestbps:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='80897'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='8990' id='19' name='Distribution of Resting Blood Pressure' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='color' w='11587' x='87930' y='90011'>
+              <zone h='44381' id='17' name='Distribution of Resting Blood Pressure' w='43724' x='44206' y='54620'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1002,6 +1090,67 @@
                 </zone-style>
               </zone>
             </zone>
+            <zone fixed-size='192' h='88764' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='11587' x='87930' y='10237'>
+              <zone h='13109' id='8' name='Prevalence by Gender' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='10237'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8989' id='9' name='Prevalence by Gender' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]' type-v2='color' w='11587' x='87930' y='23346'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9114' id='12' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='32335'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='18852' id='15' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='filter' w='11587' x='87930' y='41449'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9114' id='18' name='Distribution of Resting Blood Pressure' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:trestbps:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='60301'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='3995' id='22' type-v2='empty' w='99034' x='483' y='6242'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='5243' id='23' type-v2='text' w='99034' x='483' y='999'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontsize='24'>Heart Disease Patient Overview</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
           </zone>
           <zone-style>
             <format attr='border-color' value='#000000' />
@@ -1013,11 +1162,14 @@
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='800' minheight='800' sizing-mode='vscroll' />
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='21' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98002' id='20' param='vert' type-v2='layout-flow' w='99034' x='483' y='999'>
-                <zone h='12359' id='11' mode='checkdropdown' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='22347'>
+            <zone h='100000' id='25' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98002' id='24' param='vert' type-v2='layout-flow' w='99034' x='483' y='999'>
+                <zone h='5243' id='23' type-v2='text' w='99034' x='483' y='999'>
+                  <formatted-text>
+                    <run bold='true' fontalignment='1' fontsize='24'>Heart Disease Patient Overview</run>
+                  </formatted-text>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1026,7 +1178,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='9114' id='12' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='34706'>
+                <zone h='9114' id='12' name='Cholesterol vs Age' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[ctd:age:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='32335'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1035,7 +1187,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='41' h='49001' id='10' is-fixed='true' name='Cholesterol vs Age' w='43723' x='483' y='999'>
+                <zone fixed-size='37' h='44383' id='10' is-fixed='true' name='Cholesterol vs Age' w='43723' x='483' y='10237'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1044,7 +1196,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='12359' id='8' mode='checkdropdown' name='Prevalence by Gender' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='999'>
+                <zone h='13109' id='8' mode='checkdropdown' name='Prevalence by Gender' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='10237'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1053,7 +1205,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='41' h='49001' id='3' is-fixed='true' name='Prevalence by Gender' w='43724' x='44206' y='999'>
+                <zone fixed-size='37' h='44383' id='3' is-fixed='true' name='Prevalence by Gender' w='43724' x='44206' y='10237'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1062,7 +1214,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='8989' id='9' name='Prevalence by Gender' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]' type-v2='color' w='11587' x='87930' y='13358'>
+                <zone h='8989' id='9' name='Prevalence by Gender' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386253312:nk]' type-v2='color' w='11587' x='87930' y='23346'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1071,7 +1223,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='12359' id='14' mode='checkdropdown' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='filter' w='11587' x='87930' y='43820'>
+                <zone h='18852' id='15' mode='checkdropdown' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='filter' w='11587' x='87930' y='41449'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1080,7 +1232,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='12359' id='15' mode='checkdropdown' name='Max Heart Rate by Chest Pain Type' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='filter' w='11587' x='87930' y='56179'>
+                <zone fixed-size='36' h='44381' id='13' is-fixed='true' name='Max Heart Rate by Chest Pain Type' w='43723' x='483' y='54620'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1089,7 +1241,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='41' h='49001' id='13' is-fixed='true' name='Max Heart Rate by Chest Pain Type' w='43723' x='483' y='50000'>
+                <zone h='9114' id='18' name='Distribution of Resting Blood Pressure' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:trestbps:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='60301'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1098,34 +1250,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='12359' id='16' name='Max Heart Rate by Chest Pain Type' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]' type-v2='color' w='11587' x='87930' y='68538'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone h='9114' id='18' name='Distribution of Resting Blood Pressure' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[cnt:trestbps:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='11587' x='87930' y='80897'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='41' h='49001' id='17' is-fixed='true' name='Distribution of Resting Blood Pressure' w='43724' x='44206' y='50000'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone h='8990' id='19' name='Distribution of Resting Blood Pressure' pane-specification-id='0' param='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]' type-v2='color' w='11587' x='87930' y='90011'>
+                <zone fixed-size='36' h='44381' id='17' is-fixed='true' name='Distribution of Resting Blood Pressure' w='43724' x='44206' y='54620'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1306,18 +1431,14 @@
         </viewpoint>
         <viewpoint name='Distribution of Resting Blood Pressure'>
           <zoom type='entire-view' />
-          <highlight>
-            <color-one-way>
-              <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]</field>
-            </color-one-way>
+          <highlight field='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386388481:nk]'>
+            <bucket-selection />
           </highlight>
         </viewpoint>
         <viewpoint name='Max Heart Rate by Chest Pain Type'>
           <zoom type='entire-view' />
-          <highlight>
-            <color-one-way>
-              <field>[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]</field>
-            </color-one-way>
+          <highlight field='[federated.16tncfs0db9vi614azo9z1t0l87x].[none:Calculation_1880815835386511362:nk]'>
+            <bucket-selection />
           </highlight>
         </viewpoint>
         <viewpoint name='Prevalence by Gender'>
@@ -1329,7 +1450,7 @@
           </highlight>
         </viewpoint>
       </viewpoints>
-      <active id='18' />
+      <active id='-1' />
       <device-preview selected='Desktop' />
       <simple-id uuid='{6890C8A6-3D46-496F-B2FB-028C9E1E2862}' />
     </window>
@@ -1510,177 +1631,192 @@
     </thumbnail>
     <thumbnail height='192' name='Heart Disease Patient Overview' width='192'>
       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
-      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
-      SVkAAAAASUVORK5CYII=
+      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
     </thumbnail>
     <thumbnail height='192' name='Max Heart Rate by Chest Pain Type' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
