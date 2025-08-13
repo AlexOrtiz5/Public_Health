@@ -4,6 +4,8 @@
 # Project objective
   This project undertakes a thorough analytical and predictive exploration of a public health dataset, aiming to accurately predict the presence of heart disease dataset sourced from Kaggle, specifically from the "Heart Disease Dataset" available at https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset. Our approach has evolved into a robust, multi-faceted methodology to ensure the reliability and fairness of our findings. We began with rigorous data preparation, which included a deep dive into outlier detection and handling using the Interquartile Range (IQR) method and addressing missing data through imputation. For advanced predictive modeling, we have employed model ensembling and stacking to combine the strengths of multiple models for improved accuracy and stability. A critical component of our work is the fairness and ethical analysis, where we proactively identify and visualize potential model bias related to sensitive attributes like sex and age. To ensure a reliable estimate of our model's performance, we implemented cross-validation to prevent overfitting. Furthermore, we specifically addressed data challenges like class imbalance using strategies like SMOTE and class weights. Moving forward, we will continue to perform feature importance analysis, hypothesis testing, and explore patient segments through unsupervised clustering to derive actionable insights from this critical health data.
 
+  Tableau Dashboard Link: https://public.tableau.com/views/Health_Dashboard_17550926481940/HeartDiseasePatientOverview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
 # Methods
   List with methods:
   - Data Cleaning and Preprocessing:
